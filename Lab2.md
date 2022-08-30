@@ -84,3 +84,90 @@ Malabe(config)#
   Malabe(config)#
 
 </pre>
+
+<h3>Activity 7 - IP Address Configurations& Static and Default Routing </h3>
+<img src="https://github.com/SehanArandara/rash/blob/main/Capture.JPG" >
+<pre>
+1. Assign IP address and subnet mask to PC 
+
+</pre>
+<pre>
+2. Assign IP addresses to ports(Gatways)
+<h5> Router 4 </h5>
+Router>enable
+Router#config t
+Router(config)#int Fa0/0
+Router(config-if)#ip address 192.168.10.1 255.255.255.0
+Router(config-if)#no shutdown
+
+<br>
+
+Router(config)#int Se2/0
+Router(config-if)#ip address 10.1.0.1 255.0.0.0
+Router(config-if)#no shutdown
+
+<br>
+<h5> Router 5 </h5>
+
+Router>enable
+Router#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int Se3/0
+Router(config-if)#ip address 10.1.0.2 255.0.0.0
+Router(config-if)#no shutdown
+<br>
+
+Router(config)#int Se2/0
+Router(config-if)#ip address 11.2.0.1 255.0.0.0
+Router(config-if)#no shutdown
+
+<br>
+Router(config-if)#exit
+Router(config)#int Fa0/0
+Router(config-if)#ip address 192.168.11.1 255.255.255.0
+Router(config-if)#no shutdow
+
+<h5> Router 0 </h5>
+
+Router>enable
+Router#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int Se2/0
+Router(config-if)#ip address 11.2.0.2 255.0.0.0
+Router(config-if)#no shutdown
+
+
+Router(config)#int Fa0/0
+Router(config-if)#ip address 192.168.12.1 255.255.255.0
+Router(config-if)#no shutdown
+
+
+
+2. verify the LAN by using  ping command in CLI
+
+3.View the routing table with directly connected networks.
+
+<img src="https://github.com/SehanArandara/rash/blob/main/1.JPG">
+
+
+4. Enable inter LAN communication by configuring Static routing and Default routing
+
+--- Router 4 ----
+Router(config)#ip route 192.168.11.0 255.255.255.0 10.1.0.2
+Router(config)#ip route 192.168.12.0 255.255.255.0 10.1.0.2
+
+--- Router 5 ---
+Router(config)#ip route 192.168.10.0 255.255.255.0 10.1.0.1
+Router(config)#ip route 192.168.12.0 255.255.255.0 11.2.0.2
+
+--- Router 0 --- 
+Router(config)#ip route 192.168.11.0 255.255.255.0 11.2.0.1
+Router(config)#ip route 192.168.10.0 255.255.255.0 11.2.0.1
+
+5.Analyze the entries of the routing table again. 
+  --- there will be changes in route table before and now
+  
+  
+6.
+
+</pre>
