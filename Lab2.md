@@ -1,7 +1,7 @@
 <h3> Activity 4 </h3>
 1. changing host name
 <pre>
-1. Changing the hostname of a router.
+1. Changing the hostname of a router...
   a. Add a router to the packet tracer work space.
   b. Configure the hostname of the router to Malabe (Hint: You should be in global
     configuration mode and use the help command). 
